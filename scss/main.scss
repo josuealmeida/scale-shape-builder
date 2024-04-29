@@ -5,6 +5,34 @@ $nut-color: #000;
 $string-color: #000;
 
 
+#controls{
+	display: flex;
+	justify-content: center;
+	gap: 80px;
+
+	#color-selection-container{
+		display: flex;
+		gap: 10px;
+
+		.btn-note-color{
+			width: 60px;
+			height: 30px;
+			background: black;
+			border-radius: 5px;
+			cursor: pointer;
+
+			&:has(input:checked){
+				outline: 3px solid #eee;
+			}
+
+			input{
+				display: none;
+			}
+		}
+	}
+}
+
+
 
 #fretboard{
 	width: fit-content;

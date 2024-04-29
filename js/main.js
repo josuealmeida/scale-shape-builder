@@ -1,7 +1,9 @@
 const $selectStringsNumber = document.querySelector('#select-intrument')
+const $allNoteColors = document.querySelectorAll('.note-color')
 const $fretboard = document.querySelector('#fretboard')
 const $fret_numbers = 12
 let $string_numbers = $selectStringsNumber.value
+let $color
 
 function createFretElement(string_numbers){
 	const $fret = document.createElement('div')
@@ -17,15 +19,29 @@ function createFretElement(string_numbers){
 	}
 }
 
+for(const $noteColor of $allNoteColors){
+	$color = $noteColor.value
+	$noteColor.parentElement.style.background = $color
+
+	if($noteColor.checked == true){
+		$color = $noteColor.value 	
+	}
+	
+	$noteColor.addEventListener('click', (event)=>{
+		$color = event.target.value
+	})
+}
+
 function insertNote(){
 	const $all_notes_positions = document.querySelectorAll('.string')
 
-	for($note_position of $all_notes_positions){
+	for(const $note_position of $all_notes_positions){
 		$note_position.addEventListener('click', (event)=>{	
 			const $note_position = event.target
 			const $note = document.createElement('input')
 
 			$note.classList.add('note')
+			$note.style.background = $color
 
 			$note_position.appendChild($note)
 			
@@ -59,6 +75,7 @@ for (let n = 0; n < $fret_numbers; n++) {
 }
 
 insertNote()
+
 
 
 // change the number of strings

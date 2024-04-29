@@ -16,7 +16,7 @@
 		<!-- header -->
 		<header class="navbar bg-light" data-bs-theme="light">
 		  <div class="container">
-		    <span class="navbar-brand mb-0 h1">Scale Shape Builder</span>
+		    <h1 class="navbar-brand mb-0 h1">Scale Shape Builder</h1>
 		  </div>
 		</header>
 
@@ -24,12 +24,40 @@
 			<div class="container">
 
 				<div id="controls">
-					<label for="select-intrument" class="mb-3">Quantidades de cordas:</label>
-					<select id="select-intrument" class="form-select">
-						<option value="6">6 cordas</option>
-						<option value="5">5 cordas</option>
-						<option value="4">4 cordas</option>
-					</select>
+					<div>
+						<p class="mb-3">Quantidades de cordas:</p>
+						<select id="select-intrument" class="form-select">
+							<option value="6">6 cordas</option>
+							<option value="5">5 cordas</option>
+							<option value="4">4 cordas</option>
+						</select>
+					</div>
+
+					<div>
+						<p class="mb-3">Cor da nota:</p>
+
+						<div id="color-selection-container">
+							<label class="btn-note-color">
+								<input id="note-color--1" class="note-color" type="radio" name="note-color" value="black">
+							</label>
+
+							<label class="btn-note-color">
+								<input id="note-color--2" class="note-color" type="radio" name="note-color" value="#0d6efd">
+							</label>
+
+							<label class="btn-note-color">
+								<input id="note-color--3" class="note-color" type="radio" name="note-color" value="#dc3545">
+							</label>
+
+							<label class="btn-note-color">
+								<input id="note-color--4" class="note-color" type="radio" name="note-color" value="#6f42c1">
+							</label>
+
+							<label class="btn-note-color">
+								<input id="note-color--5" class="note-color" type="radio" name="note-color" value="#ffc107">
+							</label>
+						</div>
+					</div>
 				</div>
 
 			
@@ -38,7 +66,7 @@
 				<div id="fretboard">					
 					<!-- generate with javascript /js/main.js -->
 				</div>
-				
+
 			</div>
 		</main>
 
