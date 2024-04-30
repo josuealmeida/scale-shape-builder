@@ -34,9 +34,15 @@ $string-color: #000;
 
 
 
+
+#print-area{
+	margin: 80px auto;
+	width: fit-content;
+	padding: 25px;
+}
+
 #fretboard{
 	width: fit-content;
-	margin: 80px auto;
 	background: $fretboard-color;
 	border-left: 10px solid $nut-color;
 	display: flex;
