@@ -21,8 +21,7 @@ function createFretElement(string_numbers){
 }
 
 for(const $noteColor of $allNoteColors){
-	$color = $noteColor.value
-	$noteColor.parentElement.style.background = $color
+	$noteColor.parentElement.style.background = $noteColor.value
 
 	if($noteColor.checked == true){
 		$color = $noteColor.value 	
