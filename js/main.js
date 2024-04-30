@@ -1,6 +1,7 @@
 const $selectStringsNumber = document.querySelector('#select-intrument')
 const $allNoteColors = document.querySelectorAll('.note-color')
 const $fretboard = document.querySelector('#fretboard')
+const $btnReset = document.querySelector('#btn-reset')
 const $fret_numbers = 12
 let $string_numbers = $selectStringsNumber.value
 let $color
@@ -89,6 +90,17 @@ $selectStringsNumber.addEventListener('change', (event)=>{
 	}
 
 	insertNote()
+})
+
+
+
+// Reset fretboard
+$btnReset.addEventListener('click', ()=>{
+	const $allNotes = $fretboard.querySelectorAll('.note')
+
+	for(const $note of $allNotes){
+		$note.remove()
+	}
 })
 
 
