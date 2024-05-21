@@ -47,6 +47,12 @@ function insertNote(){
 			
 			$note.focus()
 
+			// add sharp and flat symbols
+			$note.onkeyup = (tecla) =>{
+	      $note.value = $note.value.replace('b', '♭')
+	      $note.value = $note.value.replace('#', '♯')
+	    }
+
 			// disable note focus when esc or enter is pressed
 			document.addEventListener('keydown', (event)=>{ 
 				const esc_key = 27
