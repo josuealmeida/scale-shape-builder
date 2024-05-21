@@ -2,10 +2,10 @@
 
 $fretboard-color: #fff;
 $fret-color: #777;
-$nut-color: #555;
-$string-color: #000;
+$nut-color: #222;
+$string-color: #999;
 $nut-width: 10px;
-$fret-width: 80px;
+$fret-width: 65px;
 
 
 #controls{
@@ -59,15 +59,23 @@ $fret-width: 80px;
 		position: relative;
 
 		&:first-child{			
-			width: calc($fret-width + $nut-width);
+			width: $nut-width;
 
-			&::before{
+			&::after{
 				content: '';
-				width: $nut-width;
+				width: 100%;
 				height: 100%;
 				background: $nut-color;
 				position: absolute;
-				left: 0;
+				right: 0;
+			}
+
+			.string{
+				z-index: 20;
+				
+				&::after, .note{
+					transform: translateX(-100%);
+				}
 			}
 		}
 
@@ -105,10 +113,11 @@ $fret-width: 80px;
 
 
 			@mixin note{
-				width: 40%;
+				width: 36px;
 				aspect-ratio: 1 / 1;
 				border-radius: 50%;
 				border: none;
+				transform: translateX(-3px); // metade do tamanho do traste
 			}
 
 			&::after{
@@ -129,8 +138,7 @@ $fret-width: 80px;
 				background: black;
 				color: white;
 				caret-color: transparent;
-				font-weight: 500;
-				// -webkit-text-stroke: 1px #fff;
+				font-size: 20px;
 				text-align: center;
 				cursor: pointer;
 				z-index: 10;
