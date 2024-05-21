@@ -32,6 +32,8 @@ for(const $noteColor of $allNoteColors){
 	})
 }
 
+
+
 function insertNote(){
 	const $all_notes_positions = document.querySelectorAll('.string')
 
@@ -75,11 +77,38 @@ function insertNote(){
 
 
 
+function addFretMarkers(){
+	const $frets = $fretboard.querySelectorAll('.fret')
+
+	for(mark_number of [3,5,7,9,12,15]){
+		const $fret = $frets[mark_number]
+		const $marker = document.createElement('div')
+		$marker.classList.add('marker')
+
+		if (mark_number == 12) {
+			const $double_marker = document.createElement('div')
+			$double_marker.classList.add('double_marker')
+
+			$double_marker.appendChild($marker.cloneNode(true))
+			$double_marker.appendChild($marker.cloneNode(true))
+
+			$fret.insertBefore($double_marker, $fret.firstElementChild)
+		}
+
+		else{
+			$fret.insertBefore($marker, $fret.firstElementChild)
+		}
+	}
+}
+
+
+
 // inicialize fretboard
 for (let n = 0; n < $fret_numbers; n++) {
 	createFretElement($string_numbers)
 }
 
+addFretMarkers()
 insertNote()
 
 
@@ -94,6 +123,7 @@ $selectStringsNumber.addEventListener('change', (event)=>{
 		createFretElement($string_numbers)
 	}
 
+	addFretMarkers()
 	insertNote()
 })
 
